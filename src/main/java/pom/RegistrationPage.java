@@ -10,6 +10,7 @@ public class RegistrationPage {
     private final By inputRegistrationFieldPassword = By.xpath(".//*[@type='password']");
     private final By buttonRegistration = By.xpath(".//*[text()='Зарегистрироваться']");
     private final By buttonEnterOnRegistrationPage = By.className("Auth_link__1fOlj");
+    private final By incorrectPassword = By.xpath(".//p[text()='Некорректный пароль']");
 
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
@@ -22,8 +23,14 @@ public class RegistrationPage {
         driver.findElement(inputRegistrationFieldPassword).sendKeys(password);
         driver.findElement(buttonRegistration).click();
     }
+
     @Step("Go to login page")
     public void clickButtonEnter() {
         driver.findElement(buttonEnterOnRegistrationPage).click();
+    }
+
+    @Step("Check password correct")
+    public boolean isPasswordIncorrect() {
+        return driver.findElement(incorrectPassword).isDisplayed();
     }
 }

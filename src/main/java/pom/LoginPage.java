@@ -22,7 +22,6 @@ public class LoginPage {
     }
     @Step("Search text \"Enter\"")
     public boolean isDisplayedTextEnter() {
-        driver.findElement(textEnter).isDisplayed();
-        return true;
+        return driver.findElement(textEnter).isDisplayed();
     }
 }

@@ -12,8 +12,19 @@ public class BaseTest {
 
     @Before
     @Step("Start browser")
-    public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "src\\chromedriver-win64\\chromedriver.exe");
+    public void setUp() {
+        String browser = System.getProperty("browser", "chrome");
+        switch (browser.toLowerCase()) {
+            case "chrome":
+                System.setProperty("webdriver.chrome.driver", "src\\browsers\\chromedriver-win64\\chromedriver.exe");
+                break;
+            case "yandex":
+                System.setProperty("webdriver.chrome.driver", "src\\browsers\\yandexdriver-23.11.0.2383-win64\\yandexdriver.exe");
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported browser: " + browser);
+        }
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);

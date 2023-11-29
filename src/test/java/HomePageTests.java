@@ -4,12 +4,12 @@ import org.junit.Before;
 import org.junit.Test;
 import pom.HomePage;
 
-public class HomePageTests extends BaseTest{
+public class HomePageTests extends BaseTest {
     private HomePage homePage;
 
     @Before
     @Step("Open site")
-    public void open(){
+    public void open() {
         driver.get("https://stellarburgers.nomoreparties.site/");
     }
 

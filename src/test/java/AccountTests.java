@@ -25,26 +25,26 @@ public class AccountTests extends BaseTest {
 
     @Test
     @DisplayName("Logout")
-    public void logOutOfAccount() throws InterruptedException {
-        AccountPage AccountPage = new AccountPage(driver);
-        AccountPage.clickButtonGetOutOfAccount();
+    public void logOutOfAccount() {
+        AccountPage accountPage = new AccountPage(driver);
+        accountPage.clickButtonGetOutOfAccount();
         loginPage = new LoginPage(driver);
         Assert.assertTrue(loginPage.isDisplayedTextEnter());
     }
 
     @Test
     @DisplayName("Transition from  account to Constructor across click to \"Constructor\"")
-    public void transitionAcrossConstructor(){
-        AccountPage AccountPage = new AccountPage(driver);
-        AccountPage.clickHeaderConstructor();
-        Assert.assertTrue(AccountPage.isDisplayedTextAssembleBurger());
+    public void transitionAcrossConstructor() {
+        AccountPage accountPage = new AccountPage(driver);
+        accountPage.clickHeaderConstructor();
+        Assert.assertTrue(accountPage.isDisplayedTextAssembleBurger());
     }
 
     @Test
     @DisplayName("Transition from  account to Constructor across click to logo")
-    public void transitionAcrossLogo(){
-        AccountPage AccountPage = new AccountPage(driver);
-        AccountPage.clickLogo();
-        Assert.assertTrue(AccountPage.isDisplayedTextAssembleBurger());
+    public void transitionAcrossLogo() {
+        AccountPage accountPage = new AccountPage(driver);
+        accountPage.clickLogo();
+        Assert.assertTrue(accountPage.isDisplayedTextAssembleBurger());
     }
 }
